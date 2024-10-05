@@ -1,0 +1,164 @@
+<Application x:Class="WinPostInstal.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Base Button Style -->
+        <Style x:Key="BaseButton" TargetType="Button">
+            <Setter Property="Height" Value="32" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center" 
+                                              Margin="0,0,0,2.5" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#D8D8D8" />
+                                <Setter TargetName="border" Property="Background" Value="#F7F7F7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Default Button Style -->
+        <Style x:Key="DefaultButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="BorderBrush" Value="#E2E2E2" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <!-- Accent Button Style -->
+        <Style x:Key="AccentButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#1464D7" Offset="0" />
+                        <GradientStop Color="#1482D7" Offset="0.5" />
+                        <GradientStop Color="#14A0D7" Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#2B4ADC" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center" 
+                                              Margin="0,0,0,2.5" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#0058AA" />
+                                <Setter TargetName="border" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#206CD9" Offset="0" />
+                                            <GradientStop Color="#2088D9" Offset="0.5" />
+                                            <GradientStop Color="#20A5D9" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Noactive Button Style -->
+        <Style x:Key="NoactiveButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+						<Setter Property="Background" Value="#C5C5C5" />
+						<Setter Property="Foreground" Value="White" />
+						<Setter Property="BorderBrush" Value="#B0B0B0" />
+						<Setter Property="Template">
+								<Setter.Value>
+										<ControlTemplate TargetType="Button">
+												<Border x:Name="border" 
+																Background="{TemplateBinding Background}" 
+																BorderBrush="{TemplateBinding BorderBrush}" 
+																BorderThickness="{TemplateBinding BorderThickness}" 
+																CornerRadius="5">
+														<ContentPresenter HorizontalAlignment="Center" 
+																							VerticalAlignment="Center" 
+																							Margin="0,0,0,2.5" />
+												</Border>
+										</ControlTemplate>
+								</Setter.Value>
+						</Setter>
+				</Style>
+
+        <!-- Custom CheckBox Template -->
+        <ControlTemplate x:Key="CustomCheckBoxTemplate" TargetType="CheckBox">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Grid Width="20" Height="20" Background="Transparent" VerticalAlignment="Center">
+                    <Path x:Name="CheckBoxPath" 
+                          Fill="Black" 
+                          Data="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=CheckBox}}"
+                          Stretch="Uniform" />
+                </Grid>
+                <TextBlock Text="{TemplateBinding Content}" 
+                           Margin="5,0,0,0" 
+                           VerticalAlignment="Center" />
+            </StackPanel>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="CheckBoxPath" Property="Data" 
+                            Value="M205 2048q-42 0 -79.5 -16t-65.5 -44t-44 -65.5t-16 -79.5v-1638q0 -42 16 -79.5t44 -65.5t65.5 -44t79.5 -16h1638q42 0 79.5 16t65.5 44t44 65.5t16 79.5v1638q0 42 -16 79.5t-44 65.5t-65.5 44t-79.5 16h-1638zM832 1424q15 0 30.5 -6t26.5 -17l768 -768 q23 -23 23 -57t-23 -57t-57 -23t-57 23l-711 712l-327 -328q-23 -23 -57 -23t-57 23t-23 57q0 15 6 30.5t17 26.5l384 384q11 11 26.5 17t30.5 6z" />
+                    <Setter TargetName="CheckBoxPath" Property="Fill" Value="#1464D7" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter TargetName="CheckBoxPath" Property="Data" 
+                            Value="M251 2048q-50 0 -95.5 -20.5t-80 -55t-55 -80t-20.5 -95.5v-1546q0 -50 20.5 -95.5t55 -80t80 -55t95.5 -20.5h1546q50 0 95.5 20.5t80 55t55 80t20.5 95.5v1546q0 50 -20.5 95.5t-55 80t-80 55t-95.5 20.5h-1546zM1792 1920q27 0 50 -10t40.5 -27.5t27.5 -40.5t10 -50 v-1536q0 -26 -10 -49.5t-27.5 -41t-41 -27.5t-49.5 -10h-1536q-27 0 -50 10t-40.5 27.5t-27.5 40.5t-10 50v1536q0 27 10 50.5t27 40.5t40.5 27t50.5 10h1536z" />
+                    <Setter TargetName="CheckBoxPath" Property="Fill" Value="#898989" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        
+        <!-- ScrollBar Style -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="Width" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="Transparent">
+                            <Track Name="PART_Track" IsDirectionReversed="true">
+                                <Track.Thumb>
+                                    <Thumb Background="#C5C5C5" Width="3">
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Border Background="#C5C5C5" 
+                                                        BorderBrush="Transparent" 
+                                                        BorderThickness="0" 
+                                                        CornerRadius="2">
+                                                    <Grid />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

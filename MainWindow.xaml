@@ -1,0 +1,203 @@
+<Window x:Class="WinPostInstal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Windows Post Install" Width="650" Height="575"
+        ResizeMode="CanMinimize" Background="#F2F2F2" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+				<sys:String x:Key="appName">Windows Post Install</sys:String>
+				<sys:String x:Key="appVersion">1.0</sys:String>
+				<sys:String x:Key="appDate">05.10.2024</sys:String>
+				<sys:String x:Key="appAutor">FreeGen</sys:String>
+
+        <sys:String x:Key="msgReadErr">Ошибка чтения</sys:String>
+        <sys:String x:Key="msgFileNotFound">packages.config отсутствует.</sys:String>
+        <sys:String x:Key="msgCommandError">Ошибка выполнения.</sys:String>
+        <sys:String x:Key="msgItems">Не выбраны пакеты</sys:String>
+        <sys:String x:Key="msgChocoDeleted">Chocolatey удален</sys:String>
+        <sys:String x:Key="msgChocoInstalled">Chocolatey установлен</sys:String>
+        <sys:String x:Key="msgChocoNotFound">Chocolatey не установлен</sys:String>
+        <sys:String x:Key="msgChocoFound">Chocolatey готов к работе</sys:String>
+        <sys:String x:Key="msgAdminRules">Ошибка доступа</sys:String>
+        <sys:String x:Key="ChocoManagerInstall">Установить Chocolatey</sys:String>
+        <sys:String x:Key="ChocoManagerDelete">Удалить Chocolatey</sys:String>
+        <sys:String x:Key="SelectAllText">Выделить все</sys:String>
+        <sys:String x:Key="DeselectAllText">Снять выделение</sys:String>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <Border Background="White" Width="620" Height="70" Margin="0,10,0,3" CornerRadius="5" BorderBrush="#E2E2E2" BorderThickness="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Width="20" Height="20">
+                        <Path Data="M376 1792q-75 0 -143.5 -30.5t-120 -82t-82 -120t-30.5 -143.5v-784q0 -75 30.5 -143.5t82 -120t120 -82t143.5 -30.5h1296q75 0 143.5 30.5t120 82t82 120t30.5 143.5v45q-63 -68 -139 -113q-13 -40 -37 -73t-56.5 -57t-71 -37t-80.5 -13h-1285q-50 0 -95.5 20.5t-80 55t-55 80t-20.5 95.5v778q0 52 21 97.5t56 79.5t81.5 54t97.5 20h768v128h-776zM448 768q-26 0 -45 -19t-19 -45t19 -45t45 -19h640q26 0 45 19t19 45t-19 45t-45 19h-640zM1152 1080q0 -90 36.5 -170t98 -140t142.5 -95t171 -35q92 0 173.5 35.5t142.5 96.5t96.5 142.5t35.5 173.5t-35.5 173.5t-96.5 142.5t-142.5 96.5t-173.5 35.5q-95 0 -177 -36t-142 -98t-94.5 -145t-34.5 -177zM448 1408q-26 0 -45 -19t-19 -45t19 -45t45 -19h512q26 0 45 19t19 45t-19 45t-45 19h-512zM1344 2043q-27 0 -45.5 -18.5t-18.5 -45.5v-374q72 45 153.5 68t166.5 23t166.5 -23t153.5 -68v374q0 27 -18.5 45.5t-45.5 18.5q-23 0 -40 -14l-176 -141q-17 -14 -40 -14t-40 14l-176 141q-17 14 -40 14z" Fill="#222222" Stretch="Uniform" Width="20" Height="20"/>
+                    </Viewbox>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock Text="Активация Windows" FontSize="14" Foreground="#333333"/>
+                        <TextBlock Text="Инструменты активации Microsoft Activation Script" FontSize="12" Foreground="#666666" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Name="ActivateButton" Content="Активация" Click="ActivateButton_Click" Width="130" Style="{StaticResource AccentButton}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Background="White" Width="620" Margin="0,0,0,10" CornerRadius="5" BorderBrush="#E2E2E2" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="105"/>
+                        <RowDefinition Height="270"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="330"/>
+                            <ColumnDefinition Width="220"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Width="20" Height="20">
+                            <Path Data="M412 1408q-84 0 -159 -35t-131.5 -93.5t-89 -135t-32.5 -159.5q0 -85 29 -163t81.5 -138.5t125.5 -98t161 -41.5l32 -1q11 -123 59 -223t126 -171.5t182.5 -110t227.5 -38.5t227.5 39t182.5 110t126 171t59 223h16q84 0 159.5 35t131.5 93.5t89 135.5t33 160v23v11t-1 11q-64 -78 -143 -136q-16 -47 -44 -85t-65 -64.5t-82 -41t-94 -14.5q-52 0 -86 -32.5t-42 -82.5q-5 -36 -11.5 -70t-19.5 -69q-26 -72 -69.5 -126t-100 -90.5t-124 -54.5t-142.5 -18t-142.5 18t-124 54t-100 90t-69.5 126q-13 35 -19.5 69t-11.5 71q-8 59 -46.5 87t-95.5 28q-61 0 -113.5 25.5t-91 68t-60.5 97.5t-22 114q0 61 22 116t61 97t92.5 66.5t116.5 24.5h341q-9 32 -14 64t-8 64h-327zM896 1472q0 -119 45.5 -224t123.5 -183t183 -123.5t224 -45.5q79 0 152.5 20.5t137.5 58t117 90.5t90.5 117t58 137.5t20.5 152.5q0 119 -45.5 224t-123.5 183t-183 123.5t-224 45.5q-120 0 -225 -45t-183 -123t-123 -183t-45 -225zM1472 1800q30 0 51 -21l256 -256q21 -21 21 -51t-21 -51t-51 -21t-51 21l-141 141v-346q0 -26 -19 -45t-45 -19t-45 19t-19 45v346l-141 -141q-21 -21 -51 -21t-51 21t-21 51t21 51l256 256q21 21 51 21z" Fill="#222222" Stretch="Uniform" Width="20" Height="20"/>
+                        </Viewbox>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBlock Text="Развертывание программного обеспечения" FontSize="14" Foreground="#333333"/>
+                            <TextBlock FontSize="12" Foreground="#666666" Margin="0,5,0,0" TextWrapping="Wrap">
+                                <Run Text="Система управления пакетами и ПО Chocolatey."/>
+                                <LineBreak/>
+                                <Run Text="Для развертывания подготовьте "/>
+                                <Hyperlink NavigateUri="https://community.chocolatey.org/packages" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
+                                    <Run Text="packages.config" Foreground="#1464D7" FontWeight="Bold"/>
+                                </Hyperlink>
+                                <LineBreak/>
+                                <Run Text="и поместите в папку с программой."/>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="105">
+                            <Canvas Height="105">
+                                <Button Content="{Binding InstallButtonText}" Width="170" Click="chocoButton_Click" Style="{StaticResource DefaultButton}" 
+                                        Canvas.Left="4" Canvas.Top="36"/>
+                                <TextBlock x:Name="StatusTextBlock" 
+                                           HorizontalAlignment="Center"
+                                           Canvas.Left="-11" 
+                                           Canvas.Top="72" 
+                                           TextAlignment="Center"
+                                           Width="200" />
+                            </Canvas>
+                        </StackPanel>
+                        <Border Grid.ColumnSpan="3" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>
+                    </Grid>
+                    <Border Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel x:Name="CheckBoxContainer"/>
+                        </ScrollViewer>
+                    </Border>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="280"/>
+                            <ColumnDefinition Width="170"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.ColumnSpan="3" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Top" SnapsToDevicePixels="True"/>
+                        <StackPanel Grid.Column="0" Margin="40,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Button x:Name="SelectAllButton" Content="{Binding ButtonText}" Width="130" Click="SelectAllButton_Click" Style="{StaticResource DefaultButton}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Button Width="32" Style="{StaticResource DefaultButton}" Click="ShowOverlay_Click">
+                                <Path Data="M0 960q0 -133 34 -255.5t96.5 -229.5t150 -194.5t194.5 -150t229.5 -96.5t255.5 -34t255.5 34t229.5 96.5t194.5 150t150 194.5t96.5 229.5t34 255.5t-34.5 255.5t-97 229t-150 194t-194 150t-229.5 97t-255 34.5q-133 0 -256 -34t-229.5 -96.5t-194 -150t-150 -194 t-96.5 -229.5t-34 -256zM1792 960q0 -115 -29.5 -221.5t-84 -199t-130 -168t-168 -130t-199 -84t-221.5 -29.5t-221.5 29.5t-199 84t-168 130t-130 168t-84 199t-29.5 221.5t29.5 221.5t83.5 199t130 168.5t168.5 130t199 83.5t221.5 29.5t221.5 -29.5t199 -83.5t168.5 -130 t130 -168.5t83.5 -199t29.5 -221.5zM864 576q0 -40 28 -68t68 -28t68 28t28 68t-28 68t-68 28t-68 -28t-28 -68zM896 1344v-512q0 -26 19 -45t45 -19t45 19t19 45v512q0 26 -19 45t-45 19t-45 -19t-19 -45z" Fill="#666666" Stretch="Uniform" Width="17" Height="17" Margin="0,2,0,0"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Margin="0,0,40,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Button x:Name="DeployButton" Content="Установка" Width="130" Click="DeployButton_Click" Style="{StaticResource AccentButton}"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </StackPanel>
+        <!-- FAQ -->
+				<Grid x:Name="Overlay" Visibility="Collapsed" Background="#F2F2F2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						<Border Width="620" Height="520" Margin="0,5,0,0" Background="White" BorderBrush="#E2E2E2" BorderThickness="1" CornerRadius="5" SnapsToDevicePixels="True">
+								<Grid>
+										<Grid.RowDefinitions>
+												<RowDefinition Height="100" /> 
+												<RowDefinition Height="348" /> 
+												<RowDefinition Height="70" />
+										</Grid.RowDefinitions>
+										<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,30,0,30" Grid.Row="0">
+												<TextBlock Text="{StaticResource appName}" FontSize="28" Foreground="#333333"/>
+												<TextBlock FontSize="28" Foreground="#666666">
+														<Run Text="   v."/>
+														<Run Text="{StaticResource appVersion}"/>
+												</TextBlock>
+										</StackPanel>
+										<Border Grid.Row="0" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>									
+										<StackPanel HorizontalAlignment="Left" Margin="40,30,40,30" Grid.Row="1">
+											<TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#666666">
+												<Span FontSize="15" Foreground="#333333">
+													<Run Text="{StaticResource appName}" />
+													<Run Text="предназначен для активации Windows/Office и пакетного развертывания программного обеспечения на чистую систему." />
+												</Span>
+												<LineBreak />
+												<LineBreak />
+												<Run Text="Возможности:" />
+												<LineBreak />
+												<LineBreak />
+												<Run Text="- Активация Windows и Office средствами Microsoft Activation Script." />
+												<LineBreak />
+												<Run Text="Используется онлайн скрипт massgrave — " />
+												<Hyperlink NavigateUri="https://github.com/massgravel/Microsoft-Activation-Scripts" RequestNavigate="Hyperlink_RequestNavigate">
+													<Run Text="Исходный код на GitHub" />
+												</Hyperlink>
+												<LineBreak />
+												<LineBreak />
+												<Run Text="- Пакетное развертывание программного обеспечения при помощи утилиты Chocolatey." />
+												<LineBreak />
+												<LineBreak />
+												<Run Text="Поддерживаются файлы packages.config, которые генерируются в разделе" />
+												<Hyperlink NavigateUri="https://community.chocolatey.org/packages" RequestNavigate="Hyperlink_RequestNavigate">
+													<Run Text="Packages" />
+												</Hyperlink>
+												<Run Text="на сайте Chocolatey. Выберите на этой странице нужные вам приложения, затем нажмите:" />
+												<LineBreak />
+												<Run Text="Builder -> Generate Script и, не изменяя настройки, нажмите Next. На последней странице скачайте файл packages.config. После генерации поместите файл в директорию приложения." />
+												<LineBreak />
+												<LineBreak />
+												<Run Text="Для удобства в файл конфигурации можно добавить атрибуты name, содержащие название приложения или пакета для установки." />
+												<LineBreak />
+												<LineBreak />
+											</TextBlock>
+										</StackPanel>
+										<Border Grid.Row="1" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>
+										<Grid Grid.Row="2" Margin="40,0,40,0">
+												<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="*" />
+														<ColumnDefinition Width="Auto" />
+												</Grid.ColumnDefinitions>
+												<StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="0">
+														<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+																<Run Text="Assembled by"/>
+																<Run Text="{StaticResource appAutor}"/>
+																<Run Text="on WPF .NET 4.8"/>
+														</TextBlock>
+														<StackPanel Orientation="Horizontal">
+																<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+																		<Run Text="{StaticResource appDate}"/>
+																		<Run Text="| "/>
+																</TextBlock>
+																<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+																		<Hyperlink NavigateUri="https://github.com/free-gen/Windows-Post-Install" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
+																			<Run Text="Source code" Foreground="#1464D7" FontWeight="Bold"/>
+																	</Hyperlink>
+																</TextBlock>
+														</StackPanel>
+												</StackPanel>																			
+												<Button Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Style="{StaticResource DefaultButton}" Click="CloseOverlay_Click" Grid.Column="1"/>
+										</Grid>
+								</Grid>
+						</Border>
+				</Grid>
+    </Grid>
+</Window>
