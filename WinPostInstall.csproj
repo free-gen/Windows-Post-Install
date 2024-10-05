@@ -4,13 +4,13 @@
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>app.ico</ApplicationIcon>
-		<AssemblyName>WinPostInstall</AssemblyName>
+	<AssemblyName>WinPostInstall</AssemblyName>
     <RootNamespace>WinPostInstall</RootNamespace>
-		<Configuration>Release</Configuration>
+	<Configuration>Release</Configuration>
   </PropertyGroup>
 	<ItemGroup>
-    <None Update="packages.config">
-				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		<None Update="packages.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 </Project>
