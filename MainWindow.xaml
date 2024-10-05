@@ -6,10 +6,10 @@
         ResizeMode="CanMinimize" Background="#F2F2F2" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-				<sys:String x:Key="appName">Windows Post Install</sys:String>
-				<sys:String x:Key="appVersion">1.0</sys:String>
-				<sys:String x:Key="appDate">05.10.2024</sys:String>
-				<sys:String x:Key="appAutor">FreeGen</sys:String>
+	<sys:String x:Key="appName">Windows Post Install</sys:String>
+	<sys:String x:Key="appVersion">1.0</sys:String>
+	<sys:String x:Key="appDate">05.10.2024</sys:String>
+	<sys:String x:Key="appAutor">FreeGen</sys:String>
 
         <sys:String x:Key="msgReadErr">Ошибка чтения</sys:String>
         <sys:String x:Key="msgFileNotFound">packages.config отсутствует.</sys:String>
@@ -118,86 +118,86 @@
             </Border>
         </StackPanel>
         <!-- FAQ -->
-				<Grid x:Name="Overlay" Visibility="Collapsed" Background="#F2F2F2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-						<Border Width="620" Height="520" Margin="0,5,0,0" Background="White" BorderBrush="#E2E2E2" BorderThickness="1" CornerRadius="5" SnapsToDevicePixels="True">
-								<Grid>
-										<Grid.RowDefinitions>
-												<RowDefinition Height="100" /> 
-												<RowDefinition Height="348" /> 
-												<RowDefinition Height="70" />
-										</Grid.RowDefinitions>
-										<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,30,0,30" Grid.Row="0">
-												<TextBlock Text="{StaticResource appName}" FontSize="28" Foreground="#333333"/>
-												<TextBlock FontSize="28" Foreground="#666666">
-														<Run Text="   v."/>
-														<Run Text="{StaticResource appVersion}"/>
-												</TextBlock>
-										</StackPanel>
-										<Border Grid.Row="0" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>									
-										<StackPanel HorizontalAlignment="Left" Margin="40,30,40,30" Grid.Row="1">
-											<TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#666666">
-												<Span FontSize="15" Foreground="#333333">
-													<Run Text="{StaticResource appName}" />
-													<Run Text="предназначен для активации Windows/Office и пакетного развертывания программного обеспечения на чистую систему." />
-												</Span>
-												<LineBreak />
-												<LineBreak />
-												<Run Text="Возможности:" />
-												<LineBreak />
-												<LineBreak />
-												<Run Text="- Активация Windows и Office средствами Microsoft Activation Script." />
-												<LineBreak />
-												<Run Text="Используется онлайн скрипт massgrave — " />
-												<Hyperlink NavigateUri="https://github.com/massgravel/Microsoft-Activation-Scripts" RequestNavigate="Hyperlink_RequestNavigate">
-													<Run Text="Исходный код на GitHub" />
-												</Hyperlink>
-												<LineBreak />
-												<LineBreak />
-												<Run Text="- Пакетное развертывание программного обеспечения при помощи утилиты Chocolatey." />
-												<LineBreak />
-												<LineBreak />
-												<Run Text="Поддерживаются файлы packages.config, которые генерируются в разделе" />
-												<Hyperlink NavigateUri="https://community.chocolatey.org/packages" RequestNavigate="Hyperlink_RequestNavigate">
-													<Run Text="Packages" />
-												</Hyperlink>
-												<Run Text="на сайте Chocolatey. Выберите на этой странице нужные вам приложения, затем нажмите:" />
-												<LineBreak />
-												<Run Text="Builder -> Generate Script и, не изменяя настройки, нажмите Next. На последней странице скачайте файл packages.config. После генерации поместите файл в директорию приложения." />
-												<LineBreak />
-												<LineBreak />
-												<Run Text="Для удобства в файл конфигурации можно добавить атрибуты name, содержащие название приложения или пакета для установки." />
-												<LineBreak />
-												<LineBreak />
-											</TextBlock>
-										</StackPanel>
-										<Border Grid.Row="1" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>
-										<Grid Grid.Row="2" Margin="40,0,40,0">
-												<Grid.ColumnDefinitions>
-														<ColumnDefinition Width="*" />
-														<ColumnDefinition Width="Auto" />
-												</Grid.ColumnDefinitions>
-												<StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="0">
-														<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
-																<Run Text="Assembled by"/>
-																<Run Text="{StaticResource appAutor}"/>
-																<Run Text="on WPF .NET 4.8"/>
-														</TextBlock>
-														<StackPanel Orientation="Horizontal">
-																<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
-																		<Run Text="{StaticResource appDate}"/>
-																		<Run Text="| "/>
-																</TextBlock>
-																<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
-																		<Hyperlink NavigateUri="https://github.com/free-gen/Windows-Post-Install" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
-																			<Run Text="Source code" Foreground="#1464D7" FontWeight="Bold"/>
-																	</Hyperlink>
-																</TextBlock>
-														</StackPanel>
-												</StackPanel>																			
-												<Button Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Style="{StaticResource DefaultButton}" Click="CloseOverlay_Click" Grid.Column="1"/>
-										</Grid>
-								</Grid>
-						</Border>
+	<Grid x:Name="Overlay" Visibility="Collapsed" Background="#F2F2F2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<Border Width="620" Height="520" Margin="0,5,0,0" Background="White" BorderBrush="#E2E2E2" BorderThickness="1" CornerRadius="5" SnapsToDevicePixels="True">
+			<Grid>
+				<Grid.RowDefinitions>
+						<RowDefinition Height="100" /> 
+						<RowDefinition Height="348" /> 
+						<RowDefinition Height="70" />
+				</Grid.RowDefinitions>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,30,0,30" Grid.Row="0">
+						<TextBlock Text="{StaticResource appName}" FontSize="28" Foreground="#333333"/>
+						<TextBlock FontSize="28" Foreground="#666666">
+								<Run Text="   v."/>
+								<Run Text="{StaticResource appVersion}"/>
+						</TextBlock>
+				</StackPanel>
+				<Border Grid.Row="0" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>									
+				<StackPanel HorizontalAlignment="Left" Margin="40,30,40,30" Grid.Row="1">
+					<TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#666666">
+						<Span FontSize="15" Foreground="#333333">
+							<Run Text="{StaticResource appName}" />
+							<Run Text="предназначен для активации Windows/Office и пакетного развертывания программного обеспечения на чистую систему." />
+						</Span>
+						<LineBreak />
+						<LineBreak />
+						<Run Text="Возможности:" />
+						<LineBreak />
+						<LineBreak />
+						<Run Text="- Активация Windows и Office средствами Microsoft Activation Script." />
+						<LineBreak />
+						<Run Text="Используется онлайн скрипт massgrave — " />
+						<Hyperlink NavigateUri="https://github.com/massgravel/Microsoft-Activation-Scripts" RequestNavigate="Hyperlink_RequestNavigate">
+							<Run Text="Исходный код на GitHub" />
+						</Hyperlink>
+						<LineBreak />
+						<LineBreak />
+						<Run Text="- Пакетное развертывание программного обеспечения при помощи утилиты Chocolatey." />
+						<LineBreak />
+						<LineBreak />
+						<Run Text="Поддерживаются файлы packages.config, которые генерируются в разделе" />
+						<Hyperlink NavigateUri="https://community.chocolatey.org/packages" RequestNavigate="Hyperlink_RequestNavigate">
+							<Run Text="Packages" />
+						</Hyperlink>
+						<Run Text="на сайте Chocolatey. Выберите на этой странице нужные вам приложения, затем нажмите:" />
+						<LineBreak />
+						<Run Text="Builder -> Generate Script и, не изменяя настройки, нажмите Next. На последней странице скачайте файл packages.config. После генерации поместите файл в директорию приложения." />
+						<LineBreak />
+						<LineBreak />
+						<Run Text="Для удобства в файл конфигурации можно добавить атрибуты name, содержащие название приложения или пакета для установки." />
+						<LineBreak />
+						<LineBreak />
+					</TextBlock>
+				</StackPanel>
+				<Border Grid.Row="1" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>
+				<Grid Grid.Row="2" Margin="40,0,40,0">
+						<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="0">
+								<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+										<Run Text="Assembled by"/>
+										<Run Text="{StaticResource appAutor}"/>
+										<Run Text="on WPF .NET 4.8"/>
+								</TextBlock>
+								<StackPanel Orientation="Horizontal">
+										<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+												<Run Text="{StaticResource appDate}"/>
+												<Run Text="| "/>
+										</TextBlock>
+										<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+												<Hyperlink NavigateUri="https://github.com/free-gen/Windows-Post-Install" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
+													<Run Text="Source code" Foreground="#1464D7" FontWeight="Bold"/>
+											</Hyperlink>
+										</TextBlock>
+								</StackPanel>
+						</StackPanel>																			
+						<Button Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Style="{StaticResource DefaultButton}" Click="CloseOverlay_Click" Grid.Column="1"/>
 				</Grid>
+			</Grid>
+		</Border>
+	</Grid>
     </Grid>
 </Window>
