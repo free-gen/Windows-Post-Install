@@ -172,29 +172,29 @@
 				</StackPanel>
 				<Border Grid.Row="1" Height="1" Background="#E2E2E2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" SnapsToDevicePixels="True"/>
 				<Grid Grid.Row="2" Margin="40,0,40,0">
-						<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="Auto" />
-						</Grid.ColumnDefinitions>
-						<StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="0">
-								<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
-										<Run Text="Assembled by"/>
-										<Run Text="{StaticResource appAutor}"/>
-										<Run Text="on WPF .NET 4.8"/>
-								</TextBlock>
-								<StackPanel Orientation="Horizontal">
-										<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
-												<Run Text="{StaticResource appDate}"/>
-												<Run Text="| "/>
-										</TextBlock>
-										<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
-												<Hyperlink NavigateUri="https://github.com/free-gen/Windows-Post-Install" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
-													<Run Text="Source code" Foreground="#1464D7" FontWeight="Bold"/>
-											</Hyperlink>
-										</TextBlock>
-								</StackPanel>
-						</StackPanel>																			
-						<Button Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Style="{StaticResource DefaultButton}" Click="CloseOverlay_Click" Grid.Column="1"/>
+					<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="0">
+						<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+							<Run Text="Assembled by"/>
+							<Run Text="{StaticResource appAutor}"/>
+							<Run Text="on WPF .NET 4.8"/>
+						</TextBlock>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+								<Run Text="{StaticResource appDate}"/>
+								<Run Text="| "/>
+							</TextBlock>
+							<TextBlock FontFamily="Consolas monospace" FontSize="12" Foreground="#333333">
+								<Hyperlink NavigateUri="https://github.com/free-gen/Windows-Post-Install" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
+									<Run Text="Source code" Foreground="#1464D7" FontWeight="Bold"/>
+								</Hyperlink>
+							</TextBlock>
+						</StackPanel>
+					</StackPanel>																			
+					<Button Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Style="{StaticResource DefaultButton}" Click="CloseOverlay_Click" Grid.Column="1"/>
 				</Grid>
 			</Grid>
 		</Border>
